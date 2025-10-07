@@ -1898,6 +1898,7 @@ div[data-v-ee7f456b]:after {
 }
 #pixi-box {
   z-index: auto;
+  opacity: 0.5;
 }
 #pixi-recursion-logo,
 #pixi-redeem,

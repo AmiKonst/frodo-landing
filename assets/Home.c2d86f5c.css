@@ -134,11 +134,9 @@
 }
 }
 @media (max-width: 768px) {
-#slogans > div ul[data-v-a078e414] {
-    gap: 0;
-}
 #slogans > div ul li[data-v-a078e414] {
-    line-height: 36px;
+    line-height: 1.3;
+    font-size: 22px;
 }
 }@keyframes fade-up-ec08b062 {
 0% {

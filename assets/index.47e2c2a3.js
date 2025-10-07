@@ -34179,7 +34179,7 @@ var objectInspect = function inspect_(obj, options, depth, seen) {
         var ys = arrObjKeys(obj, inspect);
         var isPlainObject = gPO ? gPO(obj) === Object.prototype : obj instanceof Object || obj.constructor === Object;
         var protoTag = obj instanceof Object ? '' : 'null prototype';
-        var stringTag = !isPlainObject && toStringTag && Object(obj) === obj && toStringTag in obj ? $slice.call(toStr$1(obj), 8, -1) : protoTag ? 'Object' : '';
+        var stringTag = !isPlainObject && toStringTag && Object(obj) === obj && toStringTag in obj ? $slice.call(toStr(obj), 8, -1) : protoTag ? 'Object' : '';
         var constructorTag = isPlainObject || typeof obj.constructor !== 'function' ? '' : obj.constructor.name ? obj.constructor.name + ' ' : '';
         var tag = constructorTag + (stringTag || protoTag ? '[' + $join.call($concat$1.call([], stringTag || [], protoTag || []), ': ') + '] ' : '');
         if (ys.length === 0) { return tag + '{}'; }
@@ -34204,13 +34204,13 @@ function quote(s) {
 function canTrustToString(obj) {
     return !toStringTag || !(typeof obj === 'object' && (toStringTag in obj || typeof obj[toStringTag] !== 'undefined'));
 }
-function isArray$6(obj) { return toStr$1(obj) === '[object Array]' && canTrustToString(obj); }
-function isDate$2(obj) { return toStr$1(obj) === '[object Date]' && canTrustToString(obj); }
-function isRegExp$2(obj) { return toStr$1(obj) === '[object RegExp]' && canTrustToString(obj); }
-function isError(obj) { return toStr$1(obj) === '[object Error]' && canTrustToString(obj); }
-function isString$3(obj) { return toStr$1(obj) === '[object String]' && canTrustToString(obj); }
-function isNumber$2(obj) { return toStr$1(obj) === '[object Number]' && canTrustToString(obj); }
-function isBoolean$1(obj) { return toStr$1(obj) === '[object Boolean]' && canTrustToString(obj); }
+function isArray$6(obj) { return toStr(obj) === '[object Array]' && canTrustToString(obj); }
+function isDate$2(obj) { return toStr(obj) === '[object Date]' && canTrustToString(obj); }
+function isRegExp$2(obj) { return toStr(obj) === '[object RegExp]' && canTrustToString(obj); }
+function isError(obj) { return toStr(obj) === '[object Error]' && canTrustToString(obj); }
+function isString$3(obj) { return toStr(obj) === '[object String]' && canTrustToString(obj); }
+function isNumber$2(obj) { return toStr(obj) === '[object Number]' && canTrustToString(obj); }
+function isBoolean$1(obj) { return toStr(obj) === '[object Boolean]' && canTrustToString(obj); }
 
 // Symbol and BigInt do have Symbol.toStringTag by spec, so that can't be used to eliminate false positives
 function isSymbol(obj) {
@@ -34246,7 +34246,7 @@ function has$3(obj, key) {
     return hasOwn$2.call(obj, key);
 }
 
-function toStr$1(obj) {
+function toStr(obj) {
     return objectToString$1.call(obj);
 }
 
@@ -34597,7 +34597,7 @@ var abs$3 = Math.abs;
 var floor$1 = Math.floor;
 
 /** @type {import('./max')} */
-var max$3 = Math.max;
+var max$2 = Math.max;
 
 /** @type {import('./min')} */
 var min$2 = Math.min;
@@ -34754,95 +34754,122 @@ function requireObject_getPrototypeOf () {
 	return Object_getPrototypeOf;
 }
 
-/* eslint no-invalid-this: 1 */
+var implementation;
+var hasRequiredImplementation;
 
-var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
-var toStr = Object.prototype.toString;
-var max$2 = Math.max;
-var funcType = '[object Function]';
+function requireImplementation () {
+	if (hasRequiredImplementation) return implementation;
+	hasRequiredImplementation = 1;
 
-var concatty = function concatty(a, b) {
-    var arr = [];
+	/* eslint no-invalid-this: 1 */
 
-    for (var i = 0; i < a.length; i += 1) {
-        arr[i] = a[i];
-    }
-    for (var j = 0; j < b.length; j += 1) {
-        arr[j + a.length] = b[j];
-    }
+	var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
+	var toStr = Object.prototype.toString;
+	var max = Math.max;
+	var funcType = '[object Function]';
 
-    return arr;
-};
+	var concatty = function concatty(a, b) {
+	    var arr = [];
 
-var slicy = function slicy(arrLike, offset) {
-    var arr = [];
-    for (var i = offset || 0, j = 0; i < arrLike.length; i += 1, j += 1) {
-        arr[j] = arrLike[i];
-    }
-    return arr;
-};
+	    for (var i = 0; i < a.length; i += 1) {
+	        arr[i] = a[i];
+	    }
+	    for (var j = 0; j < b.length; j += 1) {
+	        arr[j + a.length] = b[j];
+	    }
 
-var joiny = function (arr, joiner) {
-    var str = '';
-    for (var i = 0; i < arr.length; i += 1) {
-        str += arr[i];
-        if (i + 1 < arr.length) {
-            str += joiner;
-        }
-    }
-    return str;
-};
+	    return arr;
+	};
 
-var implementation$1 = function bind(that) {
-    var target = this;
-    if (typeof target !== 'function' || toStr.apply(target) !== funcType) {
-        throw new TypeError(ERROR_MESSAGE + target);
-    }
-    var args = slicy(arguments, 1);
+	var slicy = function slicy(arrLike, offset) {
+	    var arr = [];
+	    for (var i = offset || 0, j = 0; i < arrLike.length; i += 1, j += 1) {
+	        arr[j] = arrLike[i];
+	    }
+	    return arr;
+	};
 
-    var bound;
-    var binder = function () {
-        if (this instanceof bound) {
-            var result = target.apply(
-                this,
-                concatty(args, arguments)
-            );
-            if (Object(result) === result) {
-                return result;
-            }
-            return this;
-        }
-        return target.apply(
-            that,
-            concatty(args, arguments)
-        );
+	var joiny = function (arr, joiner) {
+	    var str = '';
+	    for (var i = 0; i < arr.length; i += 1) {
+	        str += arr[i];
+	        if (i + 1 < arr.length) {
+	            str += joiner;
+	        }
+	    }
+	    return str;
+	};
 
-    };
+	implementation = function bind(that) {
+	    var target = this;
+	    if (typeof target !== 'function' || toStr.apply(target) !== funcType) {
+	        throw new TypeError(ERROR_MESSAGE + target);
+	    }
+	    var args = slicy(arguments, 1);
 
-    var boundLength = max$2(0, target.length - args.length);
-    var boundArgs = [];
-    for (var i = 0; i < boundLength; i++) {
-        boundArgs[i] = '$' + i;
-    }
+	    var bound;
+	    var binder = function () {
+	        if (this instanceof bound) {
+	            var result = target.apply(
+	                this,
+	                concatty(args, arguments)
+	            );
+	            if (Object(result) === result) {
+	                return result;
+	            }
+	            return this;
+	        }
+	        return target.apply(
+	            that,
+	            concatty(args, arguments)
+	        );
 
-    bound = Function('binder', 'return function (' + joiny(boundArgs, ',') + '){ return binder.apply(this,arguments); }')(binder);
+	    };
 
-    if (target.prototype) {
-        var Empty = function Empty() {};
-        Empty.prototype = target.prototype;
-        bound.prototype = new Empty();
-        Empty.prototype = null;
-    }
+	    var boundLength = max(0, target.length - args.length);
+	    var boundArgs = [];
+	    for (var i = 0; i < boundLength; i++) {
+	        boundArgs[i] = '$' + i;
+	    }
 
-    return bound;
-};
+	    bound = Function('binder', 'return function (' + joiny(boundArgs, ',') + '){ return binder.apply(this,arguments); }')(binder);
 
-var implementation = implementation$1;
+	    if (target.prototype) {
+	        var Empty = function Empty() {};
+	        Empty.prototype = target.prototype;
+	        bound.prototype = new Empty();
+	        Empty.prototype = null;
+	    }
 
-var functionBind = Function.prototype.bind || implementation;
+	    return bound;
+	};
+	return implementation;
+}
 
-/** @type {import('./functionCall')} */
-var functionCall = Function.prototype.call;
+var functionBind;
+var hasRequiredFunctionBind;
+
+function requireFunctionBind () {
+	if (hasRequiredFunctionBind) return functionBind;
+	hasRequiredFunctionBind = 1;
+
+	var implementation = requireImplementation();
+
+	functionBind = Function.prototype.bind || implementation;
+	return functionBind;
+}
+
+var functionCall;
+var hasRequiredFunctionCall;
+
+function requireFunctionCall () {
+	if (hasRequiredFunctionCall) return functionCall;
+	hasRequiredFunctionCall = 1;
+
+	/** @type {import('./functionCall')} */
+	functionCall = Function.prototype.call;
+	return functionCall;
+}
 
 var functionApply;
 var hasRequiredFunctionApply;
@@ -34859,19 +34886,19 @@ function requireFunctionApply () {
 /** @type {import('./reflectApply')} */
 var reflectApply = typeof Reflect !== 'undefined' && Reflect && Reflect.apply;
 
-var bind$2 = functionBind;
+var bind$2 = requireFunctionBind();
 
 var $apply$1 = requireFunctionApply();
-var $call$2 = functionCall;
+var $call$2 = requireFunctionCall();
 var $reflectApply = reflectApply;
 
 /** @type {import('./actualApply')} */
 var actualApply = $reflectApply || bind$2.call($call$2, $apply$1);
 
-var bind$1 = functionBind;
+var bind$1 = requireFunctionBind();
 var $TypeError$4 = type;
 
-var $call$1 = functionCall;
+var $call$1 = requireFunctionCall();
 var $actualApply = actualApply;
 
 /** @type {(args: [Function, thisArg?: unknown, ...args: unknown[]]) => Function} TODO FIXME, find a way to use import('.') */
@@ -34964,7 +34991,7 @@ function requireHasown () {
 
 	var call = Function.prototype.call;
 	var $hasOwn = Object.prototype.hasOwnProperty;
-	var bind = functionBind;
+	var bind = requireFunctionBind();
 
 	/** @type {import('.')} */
 	hasown = bind.call(call, $hasOwn);
@@ -34985,7 +35012,7 @@ var $URIError = uri;
 
 var abs$2 = abs$3;
 var floor = floor$1;
-var max$1 = max$3;
+var max$1 = max$2;
 var min$1 = min$2;
 var pow = pow$1;
 var round$2 = round$3;
@@ -35030,7 +35057,7 @@ var $ObjectGPO = requireObject_getPrototypeOf();
 var $ReflectGPO = requireReflect_getPrototypeOf();
 
 var $apply = requireFunctionApply();
-var $call = functionCall;
+var $call = requireFunctionCall();
 
 var needsEval = {};
 
@@ -35211,7 +35238,7 @@ var LEGACY_ALIASES = {
 	'%WeakSetPrototype%': ['WeakSet', 'prototype']
 };
 
-var bind = functionBind;
+var bind = requireFunctionBind();
 var hasOwn$1 = requireHasown();
 var $concat = bind.call($call, Array.prototype.concat);
 var $spliceApply = bind.call($apply, Array.prototype.splice);
@@ -46200,13 +46227,13 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        component: () => __vitePreload(() => import('./Home.396e10aa.js'),true?["assets/Home.396e10aa.js","assets/Home.82bae3c6.css"]:void 0),
+        component: () => __vitePreload(() => import('./Home.5da77672.js'),true?["assets/Home.5da77672.js","assets/Home.c2d86f5c.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.b2673008.js'),true?["assets/Error.b2673008.js","assets/Error.b7bdf131.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.e0c8f4bf.js'),true?["assets/Error.e0c8f4bf.js","assets/Error.b7bdf131.css"]:void 0),
         abort: []
     },
     {
@@ -55532,7 +55559,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.f73e3afb.js'),true?["assets/browserAll.f73e3afb.js","assets/init.04fc0268.js","assets/colorToUniform.08ac551a.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.5df6b6b0.js'),true?["assets/browserAll.5df6b6b0.js","assets/init.10c8325f.js","assets/colorToUniform.08ac551a.js"]:void 0);
   }
 };
 
@@ -55544,7 +55571,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.76d510c9.js'),true?["assets/webworkerAll.76d510c9.js","assets/init.04fc0268.js","assets/colorToUniform.08ac551a.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.4d5c83b3.js'),true?["assets/webworkerAll.4d5c83b3.js","assets/init.10c8325f.js","assets/colorToUniform.08ac551a.js"]:void 0);
   }
 };
 
@@ -66004,14 +66031,14 @@ async function autoDetectRenderer(options) {
   for (let i = 0; i < preferredOrder.length; i++) {
     const rendererType = preferredOrder[i];
     if (rendererType === "webgpu" && await isWebGPUSupported()) {
-      const { WebGPURenderer } = await __vitePreload(() => import('./WebGPURenderer.7551508c.js'),true?["assets/WebGPURenderer.7551508c.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.7bb00e22.js"]:void 0);
+      const { WebGPURenderer } = await __vitePreload(() => import('./WebGPURenderer.7a40ea03.js'),true?["assets/WebGPURenderer.7a40ea03.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.fe9a5ede.js"]:void 0);
       RendererClass = WebGPURenderer;
       finalOptions = { ...options, ...options.webgpu };
       break;
     } else if (rendererType === "webgl" && isWebGLSupported(
       options.failIfMajorPerformanceCaveat ?? AbstractRenderer.defaultOptions.failIfMajorPerformanceCaveat
     )) {
-      const { WebGLRenderer } = await __vitePreload(() => import('./WebGLRenderer.4468db4a.js'),true?["assets/WebGLRenderer.4468db4a.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.7bb00e22.js"]:void 0);
+      const { WebGLRenderer } = await __vitePreload(() => import('./WebGLRenderer.a5edf47b.js'),true?["assets/WebGLRenderer.a5edf47b.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.fe9a5ede.js"]:void 0);
       RendererClass = WebGLRenderer;
       finalOptions = { ...options, ...options.webgl };
       break;
