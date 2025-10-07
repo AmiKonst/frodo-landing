@@ -46227,13 +46227,13 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        component: () => __vitePreload(() => import('./Home.5da77672.js'),true?["assets/Home.5da77672.js","assets/Home.c2d86f5c.css"]:void 0),
+        component: () => __vitePreload(() => import('./Home.6648377a.js'),true?["assets/Home.6648377a.js","assets/Home.c2d86f5c.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.e0c8f4bf.js'),true?["assets/Error.e0c8f4bf.js","assets/Error.b7bdf131.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.a9406764.js'),true?["assets/Error.a9406764.js","assets/Error.b7bdf131.css"]:void 0),
         abort: []
     },
     {
@@ -54105,7 +54105,7 @@ const _hoisted_2$7 = ["stroke"];
 const _hoisted_3$5 = ["stop-color"];
 const _hoisted_4$4 = ["stop-color"];
 const _hoisted_5$4 = ["stop-color"];
-const _hoisted_6$2 = ["fill"];
+const _hoisted_6$3 = ["fill"];
 const _hoisted_7$1 = ["fill"];
 
     
@@ -54200,7 +54200,7 @@ return (_ctx, _cache) => {
               attributeType: "XML",
               values: "\r\n                    M0 77 \r\n                    C 473,283\r\n                      822,-40\r\n                      1920,116 \r\n                    \r\n                    V 359 \r\n                    H 0 \r\n                    V 67 \r\n                    Z; \r\n\r\n                    M0 77 \r\n                    C 473,-40\r\n                      1222,283\r\n                      1920,136 \r\n                    \r\n                    V 359 \r\n                    H 0 \r\n                    V 67 \r\n                    Z; \r\n\r\n                    M0 77 \r\n                    C 973,260\r\n                      1722,-53\r\n                      1920,120 \r\n                    \r\n                    V 359 \r\n                    H 0 \r\n                    V 67 \r\n                    Z; \r\n\r\n                    M0 77 \r\n                    C 473,283\r\n                      822,-40\r\n                      1920,116 \r\n                    \r\n                    V 359 \r\n                    H 0 \r\n                    V 67 \r\n                    Z\r\n                "
             }, null, 8 /* PROPS */, _hoisted_7$1)
-          ], 8 /* PROPS */, _hoisted_6$2)
+          ], 8 /* PROPS */, _hoisted_6$3)
         ], 8 /* PROPS */, _hoisted_2$7))
       ]))
     : (openBlock(), createElementBlock("ul", {
@@ -55012,7 +55012,7 @@ const _hoisted_5$2 = {
   href: "https://t.me/bilbomusic",
   class: "desktop-only"
 };
-const _hoisted_6$1 = ["href"];
+const _hoisted_6$2 = ["href"];
 
     
 const _sfc_main$9 = {
@@ -55132,7 +55132,7 @@ return (_ctx, _cache) => {
                   : (openBlock(), createElementBlock("a", {
                       key: 1,
                       href: item.link
-                    }, toDisplayString$1(unref(t)(item.title)), 9 /* TEXT, PROPS */, _hoisted_6$1))
+                    }, toDisplayString$1(unref(t)(item.title)), 9 /* TEXT, PROPS */, _hoisted_6$2))
               ], 2 /* CLASS */))
             }), 128 /* KEYED_FRAGMENT */))
           ])
@@ -55157,6 +55157,7 @@ const _hoisted_2$3 = { href: "/" };
 const _hoisted_3$2 = ["src"];
 const _hoisted_4$1 = ["href"];
 const _hoisted_5$1 = { class: "social-links" };
+const _hoisted_6$1 = ["href"];
 
     
 const _sfc_main$8 = {
@@ -55272,12 +55273,13 @@ return (_ctx, _cache) => {
         (openBlock(), createElementBlock(Fragment, null, renderList(socials, (item, id) => {
           return createBaseVNode("a", {
             target: "_blank",
-            key: item.id
+            key: item.id,
+            href: item.link
           }, [
             createVNode(_component_Icon, {
               icon: item.icon
             }, null, 8 /* PROPS */, ["icon"])
-          ])
+          ], 8 /* PROPS */, _hoisted_6$1)
         }), 64 /* STABLE_FRAGMENT */))
       ])
     ])
@@ -55559,7 +55561,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.5df6b6b0.js'),true?["assets/browserAll.5df6b6b0.js","assets/init.10c8325f.js","assets/colorToUniform.08ac551a.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.4b3b2b8e.js'),true?["assets/browserAll.4b3b2b8e.js","assets/init.469ab917.js","assets/colorToUniform.08ac551a.js"]:void 0);
   }
 };
 
@@ -55571,7 +55573,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.4d5c83b3.js'),true?["assets/webworkerAll.4d5c83b3.js","assets/init.10c8325f.js","assets/colorToUniform.08ac551a.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.20d71720.js'),true?["assets/webworkerAll.20d71720.js","assets/init.469ab917.js","assets/colorToUniform.08ac551a.js"]:void 0);
   }
 };
 
@@ -66031,14 +66033,14 @@ async function autoDetectRenderer(options) {
   for (let i = 0; i < preferredOrder.length; i++) {
     const rendererType = preferredOrder[i];
     if (rendererType === "webgpu" && await isWebGPUSupported()) {
-      const { WebGPURenderer } = await __vitePreload(() => import('./WebGPURenderer.7a40ea03.js'),true?["assets/WebGPURenderer.7a40ea03.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.fe9a5ede.js"]:void 0);
+      const { WebGPURenderer } = await __vitePreload(() => import('./WebGPURenderer.5621df17.js'),true?["assets/WebGPURenderer.5621df17.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.2d24f46a.js"]:void 0);
       RendererClass = WebGPURenderer;
       finalOptions = { ...options, ...options.webgpu };
       break;
     } else if (rendererType === "webgl" && isWebGLSupported(
       options.failIfMajorPerformanceCaveat ?? AbstractRenderer.defaultOptions.failIfMajorPerformanceCaveat
     )) {
-      const { WebGLRenderer } = await __vitePreload(() => import('./WebGLRenderer.a5edf47b.js'),true?["assets/WebGLRenderer.a5edf47b.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.fe9a5ede.js"]:void 0);
+      const { WebGLRenderer } = await __vitePreload(() => import('./WebGLRenderer.3e71160e.js'),true?["assets/WebGLRenderer.3e71160e.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.2d24f46a.js"]:void 0);
       RendererClass = WebGLRenderer;
       finalOptions = { ...options, ...options.webgl };
       break;
