@@ -1,4 +1,4 @@
-import { u as useBackedApi, a as useTrustApi, b as useKolsApi, c as useTeamApi, _ as _export_sfc, d as useI18n, r as resolveComponent, o as openBlock, e as createElementBlock, f as createBaseVNode, g as unref, h as createVNode, B as Button, i as computed, t as toDisplayString, F as Fragment, j as renderList, n as normalizeClass, s as stores, k as reactive, w as watch, l as onMounted, m as baseUrl, p as createBlock, q as createCommentVNode, v as numberWithSpaces, x as createStaticVNode, y as delay, z as resolveDirective, A as createTextVNode, C as withDirectives, D as storeToRefs } from './index.ca62d4f5.js';
+import { u as useBackedApi, a as useTrustApi, b as useKolsApi, c as useTeamApi, _ as _export_sfc, d as useI18n, r as resolveComponent, o as openBlock, e as createElementBlock, f as createBaseVNode, g as unref, h as createVNode, B as Button, i as computed, t as toDisplayString, F as Fragment, j as renderList, n as normalizeClass, s as stores, k as reactive, w as watch, l as onMounted, m as baseUrl, p as createCommentVNode, q as createBlock, v as numberWithSpaces, x as createStaticVNode, y as delay, z as resolveDirective, A as createTextVNode, C as withDirectives, D as storeToRefs } from './index.e7bf9279.js';
 
 const api = {
     backed: () => useBackedApi(),
@@ -11,8 +11,8 @@ const Welcome_vue_vue_type_style_index_0_scoped_f32f37de_lang = '';
 
 const _hoisted_1$b = { id: "welcome" };
 const _hoisted_2$a = ["innerHTML"];
-const _hoisted_3$9 = ["innerHTML"];
-const _hoisted_4$8 = {
+const _hoisted_3$a = ["innerHTML"];
+const _hoisted_4$9 = {
   target: "_blank",
   href: "https://t.me/bilbomusic"
 };
@@ -35,8 +35,8 @@ return (_ctx, _cache) => {
       }, null, 8 /* PROPS */, _hoisted_2$a),
       createBaseVNode("p", {
         innerHTML: unref(t)('pages.home.welcome.description')
-      }, null, 8 /* PROPS */, _hoisted_3$9),
-      createBaseVNode("a", _hoisted_4$8, [
+      }, null, 8 /* PROPS */, _hoisted_3$a),
+      createBaseVNode("a", _hoisted_4$9, [
         createVNode(Button, {
           name: unref(t)('pages.home.welcome.launch')
         }, null, 8 /* PROPS */, ["name"])
@@ -95,8 +95,11 @@ const Features_vue_vue_type_style_index_0_scoped_ec08b062_lang = '';
 
 const _hoisted_1$9 = { id: "features" };
 const _hoisted_2$9 = ["onClick"];
-const _hoisted_3$8 = { class: "description" };
-const _hoisted_4$7 = ["src", "alt"];
+const _hoisted_3$9 = {
+  key: 0,
+  class: "description"
+};
+const _hoisted_4$8 = ["src", "alt"];
 const _hoisted_5$7 = ["src", "alt"];
 
     
@@ -138,16 +141,20 @@ const _sfc_main$c = {
     };
 
     const setActive = (id) => {
+        if (data.id != id) {
+            data.loading = true;
+        }
+
         if (!id && !items.value?.length) {
             setTimeout(() => {
                 setActive(0);
             }, 200);
             return;
         }
+
         data.id = id;
         data.text = '';
 
-        data.loading = true;
         setTimeout(() => {
             data.logo = items.value[id]?.logo;
         }, 100);
@@ -189,24 +196,26 @@ return (_ctx, _cache) => {
           }, toDisplayString(item.title), 11 /* TEXT, CLASS, PROPS */, _hoisted_2$9))
         }), 128 /* KEYED_FRAGMENT */))
       ]),
-      createBaseVNode("div", _hoisted_3$8, [
-        createBaseVNode("div", {
-          class: normalizeClass(`logo-${data.id}`)
-        }, [
-          createBaseVNode("img", {
-            src: `${unref(baseUrl)}/img/features/${data.logo}.png`,
-            alt: unref(t)('pages.home.features.title'),
-            class: normalizeClass({ loading: data.loading }),
-            ref: "logoRef",
-            onLoad: handleLoad
-          }, null, 42 /* CLASS, PROPS, NEED_HYDRATION */, _hoisted_4$7),
-          createBaseVNode("img", {
-            src: `${unref(baseUrl)}/img/features/${data.logo}.png`,
-            alt: unref(t)('pages.home.features.title')
-          }, null, 8 /* PROPS */, _hoisted_5$7)
-        ], 2 /* CLASS */),
-        createBaseVNode("span", null, toDisplayString(data.text), 1 /* TEXT */)
-      ])
+      (data.logo)
+        ? (openBlock(), createElementBlock("div", _hoisted_3$9, [
+            createBaseVNode("div", {
+              class: normalizeClass(`logo-${data.id}`)
+            }, [
+              createBaseVNode("img", {
+                src: `${unref(baseUrl)}img/features/${data.logo}.png`,
+                alt: unref(t)('pages.home.features.title'),
+                class: normalizeClass({ loading: data.loading }),
+                ref: "logoRef",
+                onLoad: handleLoad
+              }, null, 42 /* CLASS, PROPS, NEED_HYDRATION */, _hoisted_4$8),
+              createBaseVNode("img", {
+                src: `${unref(baseUrl)}img/features/${data.logo}.png`,
+                alt: unref(t)('pages.home.features.title')
+              }, null, 8 /* PROPS */, _hoisted_5$7)
+            ], 2 /* CLASS */),
+            createBaseVNode("span", null, toDisplayString(data.text), 1 /* TEXT */)
+          ]))
+        : createCommentVNode("v-if", true)
     ])
   ]))
 }
@@ -219,8 +228,8 @@ const TON_vue_vue_type_style_index_0_scoped_776053f2_lang = '';
 
 const _hoisted_1$8 = { id: "ton" };
 const _hoisted_2$8 = ["innerHTML"];
-const _hoisted_3$7 = { class: "items" };
-const _hoisted_4$6 = { class: "img" };
+const _hoisted_3$8 = { class: "items" };
+const _hoisted_4$7 = { class: "img" };
 const _hoisted_5$6 = ["src", "alt"];
 
     
@@ -247,10 +256,10 @@ return (_ctx, _cache) => {
         class: "description",
         innerHTML: unref(t)('pages.home.ton.description')
       }, null, 8 /* PROPS */, _hoisted_2$8),
-      createBaseVNode("div", _hoisted_3$7, [
+      createBaseVNode("div", _hoisted_3$8, [
         (openBlock(true), createElementBlock(Fragment, null, renderList(items.value, (item, id) => {
           return (openBlock(), createElementBlock("div", { key: id }, [
-            createBaseVNode("span", _hoisted_4$6, [
+            createBaseVNode("span", _hoisted_4$7, [
               createBaseVNode("img", {
                 src: `${unref(baseUrl)}/img/ton/${item.code}.png`,
                 alt: item.name
@@ -275,8 +284,8 @@ const Kols_vue_vue_type_style_index_0_scoped_ee28e392_lang = '';
 
 const _hoisted_1$7 = { id: "kols" };
 const _hoisted_2$7 = { class: "items" };
-const _hoisted_3$6 = ["href"];
-const _hoisted_4$5 = ["src", "alt"];
+const _hoisted_3$7 = ["href"];
+const _hoisted_4$6 = ["src", "alt"];
 const _hoisted_5$5 = { class: "description" };
 const _hoisted_6$2 = ["href"];
 
@@ -313,8 +322,8 @@ return (_ctx, _cache) => {
             createBaseVNode("img", {
               src: `${unref(baseUrl)}/img/kols/${item.logo}`,
               alt: item.name
-            }, null, 8 /* PROPS */, _hoisted_4$5)
-          ], 8 /* PROPS */, _hoisted_3$6))
+            }, null, 8 /* PROPS */, _hoisted_4$6)
+          ], 8 /* PROPS */, _hoisted_3$7))
         }), 128 /* KEYED_FRAGMENT */))
       ]),
       createBaseVNode("div", _hoisted_5$5, [
@@ -346,8 +355,8 @@ const BigCounter_vue_vue_type_style_index_0_scoped_6d217a49_lang = '';
 
 const _hoisted_1$6 = { key: 0 };
 const _hoisted_2$6 = ["innerHTML"];
-const _hoisted_3$5 = { class: "value" };
-const _hoisted_4$4 = { key: 1 };
+const _hoisted_3$6 = { class: "value" };
+const _hoisted_4$5 = { key: 1 };
 const _hoisted_5$4 = { class: "total" };
 const _hoisted_6$1 = { key: 1 };
 
@@ -451,7 +460,7 @@ return (_ctx, _cache) => {
               innerHTML: props.title
             }, null, 8 /* PROPS */, _hoisted_2$6))
           : createCommentVNode("v-if", true),
-        createBaseVNode("span", _hoisted_3$5, [
+        createBaseVNode("span", _hoisted_3$6, [
           createCommentVNode(" Value "),
           (openBlock(true), createElementBlock(Fragment, null, renderList(valueItems.value, (item, id) => {
             return (openBlock(), createElementBlock(Fragment, { key: id }, [
@@ -460,7 +469,7 @@ return (_ctx, _cache) => {
                     key: 0,
                     icon: `l-${item}`
                   }, null, 8 /* PROPS */, ["icon"]))
-                : (openBlock(), createElementBlock("span", _hoisted_4$4))
+                : (openBlock(), createElementBlock("span", _hoisted_4$5))
             ], 64 /* STABLE_FRAGMENT */))
           }), 128 /* KEYED_FRAGMENT */))
         ]),
@@ -499,12 +508,14 @@ const LinkButton_vue_vue_type_style_index_0_scoped_e9fcb834_lang = '';
 
 const _hoisted_1$5 = ["href", "target"];
 const _hoisted_2$5 = { key: 0 };
-
+const _hoisted_3$5 = { key: 1 };
+const _hoisted_4$4 = ["src", "alt"];
 
 const _sfc_main$8 = {
   __name: 'LinkButton',
   props: {
     icon: { type: String, default: '' },
+    img: { type: String, default: '' },
     name: { type: String, default: '' },
     description: { type: String, default: '' },
     url: { type: String, default: '' },
@@ -526,6 +537,14 @@ return (_ctx, _cache) => {
           createVNode(_component_Icon, {
             icon: props.icon
           }, null, 8 /* PROPS */, ["icon"])
+        ]))
+      : createCommentVNode("v-if", true),
+    (props.img)
+      ? (openBlock(), createElementBlock("span", _hoisted_3$5, [
+          createBaseVNode("img", {
+            src: `${unref(baseUrl)}${props.img}`,
+            alt: props.name
+          }, null, 8 /* PROPS */, _hoisted_4$4)
         ]))
       : createCommentVNode("v-if", true),
     createBaseVNode("span", null, [
@@ -586,19 +605,19 @@ return (_ctx, _cache) => {
       }, null, 8 /* PROPS */, _hoisted_4$3),
       createBaseVNode("div", _hoisted_5$3, [
         createVNode(LinkButton, {
-          icon: "telegram",
-          name: unref(t)('pages.home.any-questions.telegram'),
-          href: "https://t.me/bilbomusic",
-          description: "@bilbomusic",
+          img: "/img/team/konstantin.png",
+          name: "Konstantin Tyufyakin",
+          href: "https://t.me/konstantintyufyakin",
+          description: "@konstantintyufyakin",
           class: "option-3"
-        }, null, 8 /* PROPS */, ["name"]),
+        }),
         createVNode(LinkButton, {
-          icon: "email",
-          href: "mailto:help@bilbomusic.com",
-          name: unref(t)('pages.home.any-questions.mail'),
-          description: unref(t)('pages.home.any-questions.mail-us'),
-          class: "option-5"
-        }, null, 8 /* PROPS */, ["name", "description"])
+          img: "/img/team/gleb.png",
+          name: "Gleb Ivanov",
+          href: "https://t.me/dontrummage",
+          description: "@dontrummage",
+          class: "option-6"
+        })
       ])
     ])
   ]))

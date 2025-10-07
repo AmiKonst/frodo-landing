@@ -46200,13 +46200,13 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        component: () => __vitePreload(() => import('./Home.964e5d95.js'),true?["assets/Home.964e5d95.js","assets/Home.71a77360.css"]:void 0),
+        component: () => __vitePreload(() => import('./Home.396e10aa.js'),true?["assets/Home.396e10aa.js","assets/Home.82bae3c6.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.36fa4f42.js'),true?["assets/Error.36fa4f42.js","assets/Error.b7bdf131.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.b2673008.js'),true?["assets/Error.b2673008.js","assets/Error.b7bdf131.css"]:void 0),
         abort: []
     },
     {
@@ -46372,7 +46372,7 @@ const useKolsApi = defineStore('kols-api', {
                 {
                     name: 'Timofey Zelenski',
                     logo: 'timofey-zelenski.jpg',
-                    link: 'https://t.me/Timofey_Zelenski'
+                    link: 'https://t.me/zelenski_music'
                 }, {
                     name: 'Anatoly Grinberg',
                     logo: 'grinberg.jpg',
@@ -46396,7 +46396,7 @@ const useKolsApi = defineStore('kols-api', {
                 }, {
                     name: 'Mr X',
                     logo: 'mrx.jpg',
-                    link: 'https://t.me/Mr1011000'
+                    link: 'https://x.com/Sir1011000'
                 }, {
                     name: 'Илья Кузмицкий',
                     logo: 'satisfiremusic.jpg',
@@ -55532,7 +55532,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.52791ca7.js'),true?["assets/browserAll.52791ca7.js","assets/init.d162d1bc.js","assets/colorToUniform.08ac551a.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.f73e3afb.js'),true?["assets/browserAll.f73e3afb.js","assets/init.04fc0268.js","assets/colorToUniform.08ac551a.js"]:void 0);
   }
 };
 
@@ -55544,7 +55544,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.ad5a0c8d.js'),true?["assets/webworkerAll.ad5a0c8d.js","assets/init.d162d1bc.js","assets/colorToUniform.08ac551a.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.76d510c9.js'),true?["assets/webworkerAll.76d510c9.js","assets/init.04fc0268.js","assets/colorToUniform.08ac551a.js"]:void 0);
   }
 };
 
@@ -66004,14 +66004,14 @@ async function autoDetectRenderer(options) {
   for (let i = 0; i < preferredOrder.length; i++) {
     const rendererType = preferredOrder[i];
     if (rendererType === "webgpu" && await isWebGPUSupported()) {
-      const { WebGPURenderer } = await __vitePreload(() => import('./WebGPURenderer.435e3d29.js'),true?["assets/WebGPURenderer.435e3d29.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.38f9f05c.js"]:void 0);
+      const { WebGPURenderer } = await __vitePreload(() => import('./WebGPURenderer.7551508c.js'),true?["assets/WebGPURenderer.7551508c.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.7bb00e22.js"]:void 0);
       RendererClass = WebGPURenderer;
       finalOptions = { ...options, ...options.webgpu };
       break;
     } else if (rendererType === "webgl" && isWebGLSupported(
       options.failIfMajorPerformanceCaveat ?? AbstractRenderer.defaultOptions.failIfMajorPerformanceCaveat
     )) {
-      const { WebGLRenderer } = await __vitePreload(() => import('./WebGLRenderer.1f3067b6.js'),true?["assets/WebGLRenderer.1f3067b6.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.38f9f05c.js"]:void 0);
+      const { WebGLRenderer } = await __vitePreload(() => import('./WebGLRenderer.4468db4a.js'),true?["assets/WebGLRenderer.4468db4a.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.7bb00e22.js"]:void 0);
       RendererClass = WebGLRenderer;
       finalOptions = { ...options, ...options.webgl };
       break;
@@ -76912,4 +76912,4 @@ app.config.globalProperties.$message = message;
 
 app.mount('#bilbo-landing-app');
 
-export { Buffer as $, createTextVNode as A, Button as B, withDirectives as C, storeToRefs as D, ExtensionType as E, Fragment as F, removeItems as G, EventEmitter as H, warn as I, extensions as J, Container as K, Geometry as L, UniformGroup as M, BindGroup as N, TexturePool as O, Point as P, Texture as Q, RendererType as R, Bounds as S, Ticker as T, UPDATE_PRIORITY as U, Matrix as V, ViewContainer as W, GraphicsContext as X, deprecation as Y, v8_0_0 as Z, _export_sfc as _, useTrustApi as a, BufferUsage as a0, Color as a1, TextStyle as a2, generateTextStyleKey as a3, BigPool as a4, BatchableGraphics as a5, getAdjustedBlendModeBlend as a6, getAttributeInfoFromFormat as a7, ViewableBuffer as a8, Shader as a9, fastCopy as aA, STENCIL_MODES as aB, createIdFromString as aC, CLEAR as aD, CanvasSource as aE, TextureSource as aF, AbstractRenderer as aG, TextureMatrix as aH, DefaultBatcher as aI, getGlobalBounds as aJ, FilterEffect as aK, Sprite as aL, unsafeEvalSupported as aM, uid as aN, SystemRunner as aO, multiplyColors as aP, UPDATE_COLOR as aQ, UPDATE_BLEND as aR, UPDATE_VISIBLE as aS, getLocalBounds as aT, VERSION as aU, RendererInitHook as aV, GlProgram as aa, GpuProgram as ab, TextureStyle as ac, compileHighShaderGpuProgram as ad, roundPixelsBit as ae, compileHighShaderGlProgram as af, roundPixelsBitGl as ag, getMaxTexturesPerBatch as ah, colorBit as ai, generateTextureBatchBit as aj, colorBitGl as ak, generateTextureBatchBitGl as al, getBatchSamplersUniformGroup as am, BitmapFontManager as an, getBitmapTextLayout as ao, Cache as ap, updateQuadBounds as aq, DOMAdapter as ar, CanvasPool as as, Rectangle as at, CanvasTextMetrics as au, fontStringFromTextStyle as av, getCanvasFillStyle as aw, nextPow2 as ax, GraphicsContextSystem as ay, getTextureBatchBindGroup as az, useKolsApi as b, useTeamApi as c, useI18n as d, createElementBlock as e, createBaseVNode as f, unref as g, createVNode as h, computed as i, renderList as j, reactive as k, onMounted as l, baseUrl as m, normalizeClass as n, openBlock as o, createBlock as p, createCommentVNode as q, resolveComponent as r, stores$1 as s, toDisplayString$1 as t, useBackedApi as u, numberWithSpaces as v, watch as w, createStaticVNode as x, delay as y, resolveDirective as z };
+export { Buffer as $, createTextVNode as A, Button as B, withDirectives as C, storeToRefs as D, ExtensionType as E, Fragment as F, removeItems as G, EventEmitter as H, warn as I, extensions as J, Container as K, Geometry as L, UniformGroup as M, BindGroup as N, TexturePool as O, Point as P, Texture as Q, RendererType as R, Bounds as S, Ticker as T, UPDATE_PRIORITY as U, Matrix as V, ViewContainer as W, GraphicsContext as X, deprecation as Y, v8_0_0 as Z, _export_sfc as _, useTrustApi as a, BufferUsage as a0, Color as a1, TextStyle as a2, generateTextStyleKey as a3, BigPool as a4, BatchableGraphics as a5, getAdjustedBlendModeBlend as a6, getAttributeInfoFromFormat as a7, ViewableBuffer as a8, Shader as a9, fastCopy as aA, STENCIL_MODES as aB, createIdFromString as aC, CLEAR as aD, CanvasSource as aE, TextureSource as aF, AbstractRenderer as aG, TextureMatrix as aH, DefaultBatcher as aI, getGlobalBounds as aJ, FilterEffect as aK, Sprite as aL, unsafeEvalSupported as aM, uid as aN, SystemRunner as aO, multiplyColors as aP, UPDATE_COLOR as aQ, UPDATE_BLEND as aR, UPDATE_VISIBLE as aS, getLocalBounds as aT, VERSION as aU, RendererInitHook as aV, GlProgram as aa, GpuProgram as ab, TextureStyle as ac, compileHighShaderGpuProgram as ad, roundPixelsBit as ae, compileHighShaderGlProgram as af, roundPixelsBitGl as ag, getMaxTexturesPerBatch as ah, colorBit as ai, generateTextureBatchBit as aj, colorBitGl as ak, generateTextureBatchBitGl as al, getBatchSamplersUniformGroup as am, BitmapFontManager as an, getBitmapTextLayout as ao, Cache as ap, updateQuadBounds as aq, DOMAdapter as ar, CanvasPool as as, Rectangle as at, CanvasTextMetrics as au, fontStringFromTextStyle as av, getCanvasFillStyle as aw, nextPow2 as ax, GraphicsContextSystem as ay, getTextureBatchBindGroup as az, useKolsApi as b, useTeamApi as c, useI18n as d, createElementBlock as e, createBaseVNode as f, unref as g, createVNode as h, computed as i, renderList as j, reactive as k, onMounted as l, baseUrl as m, normalizeClass as n, openBlock as o, createCommentVNode as p, createBlock as q, resolveComponent as r, stores$1 as s, toDisplayString$1 as t, useBackedApi as u, numberWithSpaces as v, watch as w, createStaticVNode as x, delay as y, resolveDirective as z };
