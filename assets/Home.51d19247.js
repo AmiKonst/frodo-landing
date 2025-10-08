@@ -1,5 +1,5 @@
-import { u as useBackedApi, a as useTrustApi, b as useKolsApi, c as useTeamApi, _ as _export_sfc, d as useI18n, r as resolveComponent, o as openBlock, e as createElementBlock, f as createBaseVNode, g as unref, h as createVNode, B as Button, i as computed, t as toDisplayString, F as Fragment, j as renderList, n as normalizeClass, s as stores, k as reactive, w as watch, l as onMounted, m as baseUrl, p as createCommentVNode, q as createBlock, v as numberWithSpaces, x as createStaticVNode, y as delay, z as resolveDirective, A as createTextVNode, C as withDirectives, D as withCtx } from './index.5572213a.js';
-import { L as LinkButton, R as Ready } from './Ready.2fe0a573.js';
+import { u as useBackedApi, a as useTrustApi, b as useKolsApi, c as useTeamApi, _ as _export_sfc, d as useI18n, r as resolveComponent, o as openBlock, e as createElementBlock, f as createBaseVNode, g as unref, h as createVNode, B as Button, i as computed, t as toDisplayString, F as Fragment, j as renderList, n as normalizeClass, s as stores, k as reactive, w as watch, l as onMounted, m as baseUrl, p as createCommentVNode, q as createBlock, v as numberWithSpaces, x as createStaticVNode, y as delay, z as resolveDirective, A as createTextVNode, C as withDirectives, D as withCtx } from './index.697b25f2.js';
+import { L as LinkButton, R as Ready } from './Ready.e1fb84df.js';
 
 const api = {
     backed: () => useBackedApi(),

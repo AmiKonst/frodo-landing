@@ -1571,6 +1571,7 @@ div.header > div ul li button[disabled=true][data-v-2e031dc1] {
 div.header > div ul li.active a[data-v-2e031dc1],
 div.header > div ul li.active button[data-v-2e031dc1] {
   color: var(--dark-500);
+  font-weight: bold;
 }
 @media (max-width: 768px) {
 div.header > div > a[data-v-2e031dc1]:first-child {

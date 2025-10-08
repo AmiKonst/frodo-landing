@@ -1,5 +1,5 @@
-import { _ as _export_sfc, d as useI18n, r as resolveComponent, o as openBlock, e as createElementBlock, f as createBaseVNode, g as unref, h as createVNode, B as Button, s as stores, k as reactive, i as computed, w as watch, l as onMounted, t as toDisplayString, p as createCommentVNode, G as normalizeStyle, F as Fragment, j as renderList, n as normalizeClass, H as isMobile, I as ref, m as baseUrl, J as nextTick } from './index.5572213a.js';
-import { L as LinkButton, R as Ready } from './Ready.2fe0a573.js';
+import { _ as _export_sfc, d as useI18n, r as resolveComponent, o as openBlock, e as createElementBlock, f as createBaseVNode, g as unref, h as createVNode, B as Button, s as stores, k as reactive, i as computed, w as watch, l as onMounted, t as toDisplayString, p as createCommentVNode, G as normalizeStyle, F as Fragment, j as renderList, n as normalizeClass, H as isMobile, I as ref, m as baseUrl, J as nextTick } from './index.697b25f2.js';
+import { L as LinkButton, R as Ready } from './Ready.e1fb84df.js';
 
 const Intro_vue_vue_type_style_index_0_scoped_b3ad1dcf_lang = '';
 
@@ -8,7 +8,7 @@ const _hoisted_2$3 = ["innerHTML"];
 const _hoisted_3$3 = ["innerHTML"];
 const _hoisted_4$1 = {
   target: "_blank",
-  href: "https://t.me/bilbomusic"
+  href: "https://forms.gle/DqQc3WBLFQqVKUyo6"
 };
 const _hoisted_5$1 = { class: "scroll-down" };
 
