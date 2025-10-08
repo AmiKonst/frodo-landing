@@ -1310,7 +1310,7 @@ button.icon-mode.size-s[data-v-702b1db3] {
 .options-list > ul > li {
   display: flex;
   flex-direction: row;
-  padding: 10px 20px;
+  padding: 0;
   align-items: center;
   justify-content: space-between;
   font: var(--font-body-2);
@@ -1340,6 +1340,9 @@ button.icon-mode.size-s[data-v-702b1db3] {
 .options-list > ul > li a {
   font: var(--font-body-2);
   color: var(--dark-500);
+  padding: 20px;
+  width: 100%;
+  min-height: 54px;
 }
 .options-list > ul > li:hover {
   color: var(--primary-500);

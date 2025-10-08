@@ -2069,4 +2069,63 @@ to {
   margin-right: 0;
   margin-left: auto;
   text-align: right;
+}@keyframes fade-up-1d582950 {
+0% {
+    opacity: 0;
+    transform: translateY(50px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+#join[data-v-1d582950] {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#join > div[data-v-1d582950] {
+  max-width: var(--page-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: var(--sub-blocks-gap);
+}
+#join > div h2[data-v-1d582950] {
+  font: var(--font-h3);
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  color: var(--dark-500);
+}
+#join > div div[data-v-1d582950] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 64px;
+  flex-wrap: nowrap;
+}
+#join > div div p[data-v-1d582950] {
+  margin: 0;
+  padding: 0;
+  font: var(--font-body);
+  max-width: 600px;
+}
+#join > div div a[data-v-1d582950] {
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+#join > div div[data-v-1d582950] {
+    flex-direction: column;
+    gap: 24px;
+}
+#join > div div p[data-v-1d582950] {
+    text-align: center;
+}
 }
