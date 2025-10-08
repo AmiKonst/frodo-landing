@@ -1,4 +1,5 @@
-import { u as useBackedApi, a as useTrustApi, b as useKolsApi, c as useTeamApi, _ as _export_sfc, d as useI18n, r as resolveComponent, o as openBlock, e as createElementBlock, f as createBaseVNode, g as unref, h as createVNode, B as Button, i as computed, t as toDisplayString, F as Fragment, j as renderList, n as normalizeClass, s as stores, k as reactive, w as watch, l as onMounted, m as baseUrl, p as createCommentVNode, q as createBlock, v as numberWithSpaces, x as createStaticVNode, y as delay, z as resolveDirective, A as createTextVNode, C as withDirectives, D as storeToRefs } from './index.1aeef5fb.js';
+import { u as useBackedApi, a as useTrustApi, b as useKolsApi, c as useTeamApi, _ as _export_sfc, d as useI18n, r as resolveComponent, o as openBlock, e as createElementBlock, f as createBaseVNode, g as unref, h as createVNode, B as Button, i as computed, t as toDisplayString, F as Fragment, j as renderList, n as normalizeClass, s as stores, k as reactive, w as watch, l as onMounted, m as baseUrl, p as createCommentVNode, q as createBlock, v as numberWithSpaces, x as createStaticVNode, y as delay, z as resolveDirective, A as createTextVNode, C as withDirectives } from './index.d880da41.js';
+import { L as LinkButton, R as Ready } from './Ready.866a1aac.js';
 
 const api = {
     backed: () => useBackedApi(),
@@ -9,17 +10,17 @@ const api = {
 
 const Welcome_vue_vue_type_style_index_0_scoped_f32f37de_lang = '';
 
-const _hoisted_1$b = { id: "welcome" };
-const _hoisted_2$a = ["innerHTML"];
-const _hoisted_3$a = ["innerHTML"];
-const _hoisted_4$9 = {
+const _hoisted_1$a = { id: "welcome" };
+const _hoisted_2$9 = ["innerHTML"];
+const _hoisted_3$9 = ["innerHTML"];
+const _hoisted_4$8 = {
   target: "_blank",
   href: "https://t.me/bilbomusic"
 };
 const _hoisted_5$8 = { class: "scroll-down" };
 
     
-const _sfc_main$e = {
+const _sfc_main$c = {
   __name: 'Welcome',
   setup(__props) {
 
@@ -28,15 +29,15 @@ const _sfc_main$e = {
 return (_ctx, _cache) => {
   const _component_Icon = resolveComponent("Icon");
 
-  return (openBlock(), createElementBlock("div", _hoisted_1$b, [
+  return (openBlock(), createElementBlock("div", _hoisted_1$a, [
     createBaseVNode("div", null, [
       createBaseVNode("h2", {
         innerHTML: unref(t)('pages.home.welcome.title')
-      }, null, 8 /* PROPS */, _hoisted_2$a),
+      }, null, 8 /* PROPS */, _hoisted_2$9),
       createBaseVNode("p", {
         innerHTML: unref(t)('pages.home.welcome.description')
-      }, null, 8 /* PROPS */, _hoisted_3$a),
-      createBaseVNode("a", _hoisted_4$9, [
+      }, null, 8 /* PROPS */, _hoisted_3$9),
+      createBaseVNode("a", _hoisted_4$8, [
         createVNode(Button, {
           name: unref(t)('pages.home.welcome.launch')
         }, null, 8 /* PROPS */, ["name"])
@@ -52,14 +53,14 @@ return (_ctx, _cache) => {
 }
 
 };
-const Welcome = /*#__PURE__*/_export_sfc(_sfc_main$e, [['__scopeId',"data-v-f32f37de"],['__file',"D:/bilbo/landing/src/pages/Home/components/Welcome.vue"]]);
+const Welcome = /*#__PURE__*/_export_sfc(_sfc_main$c, [['__scopeId',"data-v-f32f37de"],['__file',"D:/bilbo/landing/src/pages/Home/components/Welcome.vue"]]);
 
 const Slogans_vue_vue_type_style_index_0_scoped_a078e414_lang = '';
 
-const _hoisted_1$a = { id: "slogans" };
+const _hoisted_1$9 = { id: "slogans" };
 
     
-const _sfc_main$d = {
+const _sfc_main$b = {
   __name: 'Slogans',
   setup(__props) {
 
@@ -73,7 +74,7 @@ const _sfc_main$d = {
     });
 
 return (_ctx, _cache) => {
-  return (openBlock(), createElementBlock("div", _hoisted_1$a, [
+  return (openBlock(), createElementBlock("div", _hoisted_1$9, [
     createBaseVNode("div", null, [
       createBaseVNode("h2", null, toDisplayString(unref(t)('pages.home.slogans.title')), 1 /* TEXT */),
       createBaseVNode("ul", null, [
@@ -89,21 +90,21 @@ return (_ctx, _cache) => {
 }
 
 };
-const Slogans = /*#__PURE__*/_export_sfc(_sfc_main$d, [['__scopeId',"data-v-a078e414"],['__file',"D:/bilbo/landing/src/pages/Home/components/Slogans.vue"]]);
+const Slogans = /*#__PURE__*/_export_sfc(_sfc_main$b, [['__scopeId',"data-v-a078e414"],['__file',"D:/bilbo/landing/src/pages/Home/components/Slogans.vue"]]);
 
 const Features_vue_vue_type_style_index_0_scoped_ec08b062_lang = '';
 
-const _hoisted_1$9 = { id: "features" };
-const _hoisted_2$9 = ["onClick"];
-const _hoisted_3$9 = {
+const _hoisted_1$8 = { id: "features" };
+const _hoisted_2$8 = ["onClick"];
+const _hoisted_3$8 = {
   key: 0,
   class: "description"
 };
-const _hoisted_4$8 = ["src", "alt"];
+const _hoisted_4$7 = ["src", "alt"];
 const _hoisted_5$7 = ["src", "alt"];
 
     
-const _sfc_main$c = {
+const _sfc_main$a = {
   __name: 'Features',
   setup(__props) {
 
@@ -184,7 +185,7 @@ const _sfc_main$c = {
     });
 
 return (_ctx, _cache) => {
-  return (openBlock(), createElementBlock("div", _hoisted_1$9, [
+  return (openBlock(), createElementBlock("div", _hoisted_1$8, [
     createBaseVNode("div", null, [
       createBaseVNode("h2", null, toDisplayString(unref(t)('pages.home.features.title')), 1 /* TEXT */),
       createBaseVNode("ul", null, [
@@ -193,11 +194,11 @@ return (_ctx, _cache) => {
             class: normalizeClass({ active: data.id === id }),
             key: id,
             onClick: $event => (setActive(id))
-          }, toDisplayString(item.title), 11 /* TEXT, CLASS, PROPS */, _hoisted_2$9))
+          }, toDisplayString(item.title), 11 /* TEXT, CLASS, PROPS */, _hoisted_2$8))
         }), 128 /* KEYED_FRAGMENT */))
       ]),
       (data.logo)
-        ? (openBlock(), createElementBlock("div", _hoisted_3$9, [
+        ? (openBlock(), createElementBlock("div", _hoisted_3$8, [
             createBaseVNode("div", {
               class: normalizeClass(`logo-${data.id}`)
             }, [
@@ -207,7 +208,7 @@ return (_ctx, _cache) => {
                 class: normalizeClass({ loading: data.loading }),
                 ref: "logoRef",
                 onLoad: handleLoad
-              }, null, 42 /* CLASS, PROPS, NEED_HYDRATION */, _hoisted_4$8),
+              }, null, 42 /* CLASS, PROPS, NEED_HYDRATION */, _hoisted_4$7),
               createBaseVNode("img", {
                 src: `${unref(baseUrl)}img/features/${data.logo}.png`,
                 alt: unref(t)('pages.home.features.title')
@@ -222,18 +223,18 @@ return (_ctx, _cache) => {
 }
 
 };
-const Features = /*#__PURE__*/_export_sfc(_sfc_main$c, [['__scopeId',"data-v-ec08b062"],['__file',"D:/bilbo/landing/src/pages/Home/components/Features.vue"]]);
+const Features = /*#__PURE__*/_export_sfc(_sfc_main$a, [['__scopeId',"data-v-ec08b062"],['__file',"D:/bilbo/landing/src/pages/Home/components/Features.vue"]]);
 
 const TON_vue_vue_type_style_index_0_scoped_776053f2_lang = '';
 
-const _hoisted_1$8 = { id: "ton" };
-const _hoisted_2$8 = ["innerHTML"];
-const _hoisted_3$8 = { class: "items" };
-const _hoisted_4$7 = { class: "img" };
+const _hoisted_1$7 = { id: "ton" };
+const _hoisted_2$7 = ["innerHTML"];
+const _hoisted_3$7 = { class: "items" };
+const _hoisted_4$6 = { class: "img" };
 const _hoisted_5$6 = ["src", "alt"];
 
     
-const _sfc_main$b = {
+const _sfc_main$9 = {
   __name: 'TON',
   setup(__props) {
 
@@ -249,17 +250,17 @@ const _sfc_main$b = {
     });
 
 return (_ctx, _cache) => {
-  return (openBlock(), createElementBlock("div", _hoisted_1$8, [
+  return (openBlock(), createElementBlock("div", _hoisted_1$7, [
     createBaseVNode("div", null, [
       createBaseVNode("h2", null, toDisplayString(unref(t)('pages.home.ton.title')), 1 /* TEXT */),
       createBaseVNode("div", {
         class: "description",
         innerHTML: unref(t)('pages.home.ton.description')
-      }, null, 8 /* PROPS */, _hoisted_2$8),
-      createBaseVNode("div", _hoisted_3$8, [
+      }, null, 8 /* PROPS */, _hoisted_2$7),
+      createBaseVNode("div", _hoisted_3$7, [
         (openBlock(true), createElementBlock(Fragment, null, renderList(items.value, (item, id) => {
           return (openBlock(), createElementBlock("div", { key: id }, [
-            createBaseVNode("span", _hoisted_4$7, [
+            createBaseVNode("span", _hoisted_4$6, [
               createBaseVNode("img", {
                 src: `${unref(baseUrl)}/img/ton/${item.code}.png`,
                 alt: item.name
@@ -278,19 +279,19 @@ return (_ctx, _cache) => {
 }
 
 };
-const TON = /*#__PURE__*/_export_sfc(_sfc_main$b, [['__scopeId',"data-v-776053f2"],['__file',"D:/bilbo/landing/src/pages/Home/components/TON.vue"]]);
+const TON = /*#__PURE__*/_export_sfc(_sfc_main$9, [['__scopeId',"data-v-776053f2"],['__file',"D:/bilbo/landing/src/pages/Home/components/TON.vue"]]);
 
 const Kols_vue_vue_type_style_index_0_scoped_ee28e392_lang = '';
 
-const _hoisted_1$7 = { id: "kols" };
-const _hoisted_2$7 = { class: "items" };
-const _hoisted_3$7 = ["href"];
-const _hoisted_4$6 = ["src", "alt"];
+const _hoisted_1$6 = { id: "kols" };
+const _hoisted_2$6 = { class: "items" };
+const _hoisted_3$6 = ["href"];
+const _hoisted_4$5 = ["src", "alt"];
 const _hoisted_5$5 = { class: "description" };
 const _hoisted_6$2 = ["href"];
 
     
-const _sfc_main$a = {
+const _sfc_main$8 = {
   __name: 'Kols',
   setup(__props) {
 
@@ -309,10 +310,10 @@ const _sfc_main$a = {
 return (_ctx, _cache) => {
   const _component_Icon = resolveComponent("Icon");
 
-  return (openBlock(), createElementBlock("div", _hoisted_1$7, [
+  return (openBlock(), createElementBlock("div", _hoisted_1$6, [
     createBaseVNode("div", null, [
       createBaseVNode("h2", null, toDisplayString(unref(t)('pages.home.kols.title')), 1 /* TEXT */),
-      createBaseVNode("div", _hoisted_2$7, [
+      createBaseVNode("div", _hoisted_2$6, [
         (openBlock(true), createElementBlock(Fragment, null, renderList(data.previewItems, (item, id) => {
           return (openBlock(), createElementBlock("a", {
             target: "_blank",
@@ -322,8 +323,8 @@ return (_ctx, _cache) => {
             createBaseVNode("img", {
               src: `${unref(baseUrl)}/img/kols/${item.logo}`,
               alt: item.name
-            }, null, 8 /* PROPS */, _hoisted_4$6)
-          ], 8 /* PROPS */, _hoisted_3$7))
+            }, null, 8 /* PROPS */, _hoisted_4$5)
+          ], 8 /* PROPS */, _hoisted_3$6))
         }), 128 /* KEYED_FRAGMENT */))
       ]),
       createBaseVNode("div", _hoisted_5$5, [
@@ -349,19 +350,19 @@ return (_ctx, _cache) => {
 }
 
 };
-const Kols = /*#__PURE__*/_export_sfc(_sfc_main$a, [['__scopeId',"data-v-ee28e392"],['__file',"D:/bilbo/landing/src/pages/Home/components/Kols.vue"]]);
+const Kols = /*#__PURE__*/_export_sfc(_sfc_main$8, [['__scopeId',"data-v-ee28e392"],['__file',"D:/bilbo/landing/src/pages/Home/components/Kols.vue"]]);
 
 const BigCounter_vue_vue_type_style_index_0_scoped_6d217a49_lang = '';
 
-const _hoisted_1$6 = { key: 0 };
-const _hoisted_2$6 = ["innerHTML"];
-const _hoisted_3$6 = { class: "value" };
-const _hoisted_4$5 = { key: 1 };
+const _hoisted_1$5 = { key: 0 };
+const _hoisted_2$5 = ["innerHTML"];
+const _hoisted_3$5 = { class: "value" };
+const _hoisted_4$4 = { key: 1 };
 const _hoisted_5$4 = { class: "total" };
 const _hoisted_6$1 = { key: 1 };
 
     
-const _sfc_main$9 = {
+const _sfc_main$7 = {
   __name: 'BigCounter',
   props: {
         title: { type: [String, null], default: null },
@@ -451,16 +452,16 @@ return (_ctx, _cache) => {
   const _component_Icon = resolveComponent("Icon");
 
   return (props.value !== null)
-    ? (openBlock(), createElementBlock("div", _hoisted_1$6, [
+    ? (openBlock(), createElementBlock("div", _hoisted_1$5, [
         _cache[1] || (_cache[1] = createStaticVNode("<svg width=\"2479\" height=\"1080\" viewBox=\"0 0 2479 1080\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" class=\"bg\" data-v-6d217a49><path d=\"M1093.83 975.09L1015.43 1247.58\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M1498.1 988L1591.42 1120.27\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M1470.9 89.9301L1772.72 -152.65\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M1258.34 89.9301L1248.96 -152.65\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M937.03 38.3201L660.97 -186.19\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M1772.72 975.09L2047.07 1125.82\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M1853.53 102.84L2031.59 28\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M799 975.09L745.2 1039.61\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M474.3 543.78L230.94 561.12\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M520.03 89.9301L308.02 -64.8999\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M2047.07 430.51L2823.54 236.03\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M-161 1111.34L261.34 806.71\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M-137.34 65.4199L414.03 406.06\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path><path d=\"M2008.14 655.35L2146.67 709.78\" stroke-width=\"25\" stroke-miterlimit=\"10\" data-v-6d217a49></path></svg>", 1)),
         (props.title)
           ? (openBlock(), createElementBlock("span", {
               key: 0,
               class: "title",
               innerHTML: props.title
-            }, null, 8 /* PROPS */, _hoisted_2$6))
+            }, null, 8 /* PROPS */, _hoisted_2$5))
           : createCommentVNode("v-if", true),
-        createBaseVNode("span", _hoisted_3$6, [
+        createBaseVNode("span", _hoisted_3$5, [
           createCommentVNode(" Value "),
           (openBlock(true), createElementBlock(Fragment, null, renderList(valueItems.value, (item, id) => {
             return (openBlock(), createElementBlock(Fragment, { key: id }, [
@@ -469,7 +470,7 @@ return (_ctx, _cache) => {
                     key: 0,
                     icon: `l-${item}`
                   }, null, 8 /* PROPS */, ["icon"]))
-                : (openBlock(), createElementBlock("span", _hoisted_4$5))
+                : (openBlock(), createElementBlock("span", _hoisted_4$4))
             ], 64 /* STABLE_FRAGMENT */))
           }), 128 /* KEYED_FRAGMENT */))
         ]),
@@ -502,61 +503,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const BigCounter = /*#__PURE__*/_export_sfc(_sfc_main$9, [['__scopeId',"data-v-6d217a49"],['__file',"D:/bilbo/landing/shared/components/ui/BigCounter.vue"]]);
-
-const LinkButton_vue_vue_type_style_index_0_scoped_e9fcb834_lang = '';
-
-const _hoisted_1$5 = ["href", "target"];
-const _hoisted_2$5 = { key: 0 };
-const _hoisted_3$5 = { key: 1 };
-const _hoisted_4$4 = ["src", "alt"];
-
-const _sfc_main$8 = {
-  __name: 'LinkButton',
-  props: {
-    icon: { type: String, default: '' },
-    img: { type: String, default: '' },
-    name: { type: String, default: '' },
-    description: { type: String, default: '' },
-    url: { type: String, default: '' },
-    blank: { type: String, default: '_black' }
-},
-  setup(__props) {
-
-const props = __props;
-
-return (_ctx, _cache) => {
-  const _component_Icon = resolveComponent("Icon");
-
-  return (openBlock(), createElementBlock("a", {
-    href: props.url,
-    target: props.blank
-  }, [
-    (props.icon)
-      ? (openBlock(), createElementBlock("span", _hoisted_2$5, [
-          createVNode(_component_Icon, {
-            icon: props.icon
-          }, null, 8 /* PROPS */, ["icon"])
-        ]))
-      : createCommentVNode("v-if", true),
-    (props.img)
-      ? (openBlock(), createElementBlock("span", _hoisted_3$5, [
-          createBaseVNode("img", {
-            src: `${unref(baseUrl)}${props.img}`,
-            alt: props.name
-          }, null, 8 /* PROPS */, _hoisted_4$4)
-        ]))
-      : createCommentVNode("v-if", true),
-    createBaseVNode("span", null, [
-      createBaseVNode("span", null, toDisplayString(props.name), 1 /* TEXT */),
-      createBaseVNode("span", null, toDisplayString(props.description), 1 /* TEXT */)
-    ])
-  ], 8 /* PROPS */, _hoisted_1$5))
-}
-}
-
-};
-const LinkButton = /*#__PURE__*/_export_sfc(_sfc_main$8, [['__scopeId',"data-v-e9fcb834"],['__file',"D:/bilbo/landing/shared/components/ui/LinkButton.vue"]]);
+const BigCounter = /*#__PURE__*/_export_sfc(_sfc_main$7, [['__scopeId',"data-v-6d217a49"],['__file',"D:/bilbo/landing/shared/components/ui/BigCounter.vue"]]);
 
 const Team_vue_vue_type_style_index_0_scoped_c49fef69_lang = '';
 
@@ -567,7 +514,7 @@ const _hoisted_4$3 = ["innerHTML"];
 const _hoisted_5$3 = { class: "buttons" };
 
     
-const _sfc_main$7 = {
+const _sfc_main$6 = {
   __name: 'Team',
   setup(__props) {
 
@@ -625,7 +572,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Team = /*#__PURE__*/_export_sfc(_sfc_main$7, [['__scopeId',"data-v-c49fef69"],['__file',"D:/bilbo/landing/src/pages/Home/components/Team.vue"]]);
+const Team = /*#__PURE__*/_export_sfc(_sfc_main$6, [['__scopeId',"data-v-c49fef69"],['__file',"D:/bilbo/landing/src/pages/Home/components/Team.vue"]]);
 
 const Backed_vue_vue_type_style_index_0_scoped_c9d1aeba_lang = '';
 
@@ -636,7 +583,7 @@ const _hoisted_4$2 = ["src", "alt"];
 const _hoisted_5$2 = ["src", "alt"];
 
     
-const _sfc_main$6 = {
+const _sfc_main$5 = {
   __name: 'Backed',
   setup(__props) {
 
@@ -678,11 +625,11 @@ return (_ctx, _cache) => {
 }
 
 };
-const Backed = /*#__PURE__*/_export_sfc(_sfc_main$6, [['__scopeId',"data-v-c9d1aeba"],['__file',"D:/bilbo/landing/src/pages/Home/components/Backed.vue"]]);
+const Backed = /*#__PURE__*/_export_sfc(_sfc_main$5, [['__scopeId',"data-v-c9d1aeba"],['__file',"D:/bilbo/landing/src/pages/Home/components/Backed.vue"]]);
 
 const Steps_vue_vue_type_style_index_0_scoped_8135f9bc_lang = '';
 
-const _sfc_main$5 = {
+const _sfc_main$4 = {
   __name: 'Steps',
   props: {
         total: { type: Number, default: 1 },
@@ -708,7 +655,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Steps = /*#__PURE__*/_export_sfc(_sfc_main$5, [['__scopeId',"data-v-8135f9bc"],['__file',"D:/bilbo/landing/shared/components/ui/Steps.vue"]]);
+const Steps = /*#__PURE__*/_export_sfc(_sfc_main$4, [['__scopeId',"data-v-8135f9bc"],['__file',"D:/bilbo/landing/shared/components/ui/Steps.vue"]]);
 
 const Monetization_vue_vue_type_style_index_0_scoped_f5de741a_lang = '';
 
@@ -721,7 +668,7 @@ const _hoisted_6 = ["src"];
 const _hoisted_7 = ["innerHTML"];
 
     
-const _sfc_main$4 = {
+const _sfc_main$3 = {
   __name: 'Monetization',
   setup(__props) {
 
@@ -865,7 +812,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const Monetization = /*#__PURE__*/_export_sfc(_sfc_main$4, [['__scopeId',"data-v-f5de741a"],['__file',"D:/bilbo/landing/src/pages/Home/components/Monetization.vue"]]);
+const Monetization = /*#__PURE__*/_export_sfc(_sfc_main$3, [['__scopeId',"data-v-f5de741a"],['__file',"D:/bilbo/landing/src/pages/Home/components/Monetization.vue"]]);
 
 const AnyQuestions_vue_vue_type_style_index_0_scoped_e62951bc_lang = '';
 
@@ -874,7 +821,7 @@ const _hoisted_2$1 = ["innerHTML"];
 const _hoisted_3$1 = { class: "buttons" };
 
     
-const _sfc_main$3 = {
+const _sfc_main$2 = {
   __name: 'AnyQuestions',
   setup(__props) {
 
@@ -909,7 +856,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const AnyQuestions = /*#__PURE__*/_export_sfc(_sfc_main$3, [['__scopeId',"data-v-e62951bc"],['__file',"D:/bilbo/landing/src/pages/Home/components/AnyQuestions.vue"]]);
+const AnyQuestions = /*#__PURE__*/_export_sfc(_sfc_main$2, [['__scopeId',"data-v-e62951bc"],['__file',"D:/bilbo/landing/src/pages/Home/components/AnyQuestions.vue"]]);
 
 const FAQ_vue_vue_type_style_index_0_scoped_32a48cf7_lang = '';
 
@@ -923,7 +870,7 @@ const _hoisted_4 = ["innerHTML"];
 const _hoisted_5 = ["innerHTML"];
 
     
-const _sfc_main$2 = {
+const _sfc_main$1 = {
   __name: 'FAQ',
   setup(__props) {
 
@@ -977,58 +924,7 @@ return (_ctx, _cache) => {
 }
 
 };
-const FAQ = /*#__PURE__*/_export_sfc(_sfc_main$2, [['__scopeId',"data-v-32a48cf7"],['__file',"D:/bilbo/landing/src/pages/Home/components/FAQ.vue"]]);
-
-const _sfc_main$1 = {
-  __name: 'Ready',
-  props: {
-    page: { type: String, default: '' },
-    init: { type: Function, default: async () => {} }
-},
-  emits: ['ready'],
-  setup(__props, { emit: __emit }) {
-
-const nav = stores.nav();
-const others = stores.others();
-
-const { ready } = storeToRefs(others);
-
-const props = __props;
-
-const emit = __emit;
-
-const onReady = async () => {
-    if (props.init) {
-        await props.init();
-    }
-
-    if (props.page === nav.page) {
-        emit('ready');
-    }
-
-    nav.ready(props.page);
-};
-
-if (ready.value) {
-    onReady();
-}
-
-watch(
-    () => ready.value,
-    async () => {
-        if (ready.value) {
-            onReady();
-        }
-    }
-);
-
-return (_ctx, _cache) => {
-  return null
-}
-}
-
-};
-const Ready = /*#__PURE__*/_export_sfc(_sfc_main$1, [['__file',"D:/bilbo/landing/shared/components/ui/Ready.vue"]]);
+const FAQ = /*#__PURE__*/_export_sfc(_sfc_main$1, [['__scopeId',"data-v-32a48cf7"],['__file',"D:/bilbo/landing/src/pages/Home/components/FAQ.vue"]]);
 
 const _sfc_main = {
   __name: 'Home',
@@ -1040,7 +936,6 @@ const _sfc_main = {
 return (_ctx, _cache) => {
   return (openBlock(), createElementBlock(Fragment, null, [
     createVNode(Welcome),
-    createCommentVNode(" <Trust /> "),
     createVNode(Slogans),
     createVNode(Features),
     createVNode(TON),
