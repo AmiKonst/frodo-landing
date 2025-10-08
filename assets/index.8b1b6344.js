@@ -43428,6 +43428,44 @@ function createWebHistory(base) {
     return routerHistory;
 }
 
+/**
+ * Creates a hash history. Useful for web applications with no host (e.g. `file://`) or when configuring a server to
+ * handle any URL is not possible.
+ *
+ * @param base - optional base to provide. Defaults to `location.pathname + location.search` If there is a `<base>` tag
+ * in the `head`, its value will be ignored in favor of this parameter **but note it affects all the history.pushState()
+ * calls**, meaning that if you use a `<base>` tag, it's `href` value **has to match this parameter** (ignoring anything
+ * after the `#`).
+ *
+ * @example
+ * ```js
+ * // at https://example.com/folder
+ * createWebHashHistory() // gives a url of `https://example.com/folder#`
+ * createWebHashHistory('/folder/') // gives a url of `https://example.com/folder/#`
+ * // if the `#` is provided in the base, it won't be added by `createWebHashHistory`
+ * createWebHashHistory('/folder/#/app/') // gives a url of `https://example.com/folder/#/app/`
+ * // you should avoid doing this because it changes the original url and breaks copying urls
+ * createWebHashHistory('/other-folder/') // gives a url of `https://example.com/other-folder/#`
+ *
+ * // at file:///usr/etc/folder/index.html
+ * // for locations with no `host`, the base is ignored
+ * createWebHashHistory('/iAmIgnored') // gives a url of `file:///usr/etc/folder/index.html#`
+ * ```
+ */
+function createWebHashHistory(base) {
+    // Make sure this implementation is fine in terms of encoding, specially for IE11
+    // for `file://`, directly use the pathname and ignore the base
+    // location.pathname contains an initial `/` even at the root: `https://example.com`
+    base = location.host ? base || location.pathname + location.search : '';
+    // allow the user to provide a `#` in the middle: `/base/#/app`
+    if (!base.includes('#'))
+        base += '#';
+    if (!base.endsWith('#/') && !base.endsWith('#')) {
+        warn$2(`A hash base must end with a "#":\n"${base}" should be "${base.replace(/#.*$/, '#')}".`);
+    }
+    return createWebHistory(base);
+}
+
 function isRouteLocation(route) {
     return typeof route === 'string' || (route && typeof route === 'object');
 }
@@ -46227,19 +46265,19 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        component: () => __vitePreload(() => import('./Home.51d19247.js'),true?["assets/Home.51d19247.js","assets/Ready.e1fb84df.js","assets/Ready.3added5a.css","assets/Home.56e92f6f.css"]:void 0),
+        component: () => __vitePreload(() => import('./Home.f4bf5cba.js'),true?["assets/Home.f4bf5cba.js","assets/Ready.b9e9c62b.js","assets/Ready.3added5a.css","assets/Home.56e92f6f.css"]:void 0),
         abort: []
     },
     {
         path: '/join',
         name: 'join',
-        component: () => __vitePreload(() => import('./Join.e61f6fb5.js'),true?["assets/Join.e61f6fb5.js","assets/Ready.e1fb84df.js","assets/Ready.3added5a.css","assets/Join.9345e8bf.css"]:void 0),
+        component: () => __vitePreload(() => import('./Join.75d8a759.js'),true?["assets/Join.75d8a759.js","assets/Ready.b9e9c62b.js","assets/Ready.3added5a.css","assets/Join.9345e8bf.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.59540556.js'),true?["assets/Error.59540556.js","assets/Error.b7bdf131.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.4b448a36.js'),true?["assets/Error.4b448a36.js","assets/Error.b7bdf131.css"]:void 0),
         abort: []
     },
     {
@@ -46250,7 +46288,7 @@ const routes = [
 ];
 
 const router = createRouter({
-    history: createWebHistory(""),
+    history: createWebHashHistory(""),
     routes,
     scrollBehavior(to, from, savedPosition) {
         return { top: 0 };
@@ -55584,7 +55622,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.7bda460b.js'),true?["assets/browserAll.7bda460b.js","assets/init.fae44cd0.js","assets/colorToUniform.08ac551a.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.7b037b50.js'),true?["assets/browserAll.7b037b50.js","assets/init.de52ac3d.js","assets/colorToUniform.08ac551a.js"]:void 0);
   }
 };
 
@@ -55596,7 +55634,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.f83f7904.js'),true?["assets/webworkerAll.f83f7904.js","assets/init.fae44cd0.js","assets/colorToUniform.08ac551a.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.050cee82.js'),true?["assets/webworkerAll.050cee82.js","assets/init.de52ac3d.js","assets/colorToUniform.08ac551a.js"]:void 0);
   }
 };
 
@@ -66056,14 +66094,14 @@ async function autoDetectRenderer(options) {
   for (let i = 0; i < preferredOrder.length; i++) {
     const rendererType = preferredOrder[i];
     if (rendererType === "webgpu" && await isWebGPUSupported()) {
-      const { WebGPURenderer } = await __vitePreload(() => import('./WebGPURenderer.4cc3be3d.js'),true?["assets/WebGPURenderer.4cc3be3d.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.cd8a4113.js"]:void 0);
+      const { WebGPURenderer } = await __vitePreload(() => import('./WebGPURenderer.09472411.js'),true?["assets/WebGPURenderer.09472411.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.e7399794.js"]:void 0);
       RendererClass = WebGPURenderer;
       finalOptions = { ...options, ...options.webgpu };
       break;
     } else if (rendererType === "webgl" && isWebGLSupported(
       options.failIfMajorPerformanceCaveat ?? AbstractRenderer.defaultOptions.failIfMajorPerformanceCaveat
     )) {
-      const { WebGLRenderer } = await __vitePreload(() => import('./WebGLRenderer.350059be.js'),true?["assets/WebGLRenderer.350059be.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.cd8a4113.js"]:void 0);
+      const { WebGLRenderer } = await __vitePreload(() => import('./WebGLRenderer.4def3bf0.js'),true?["assets/WebGLRenderer.4def3bf0.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.e7399794.js"]:void 0);
       RendererClass = WebGLRenderer;
       finalOptions = { ...options, ...options.webgl };
       break;
