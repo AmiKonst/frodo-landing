@@ -1606,6 +1606,7 @@ div.footer[data-v-6c9aa71b] {
   min-height: var(--footer-height);
   padding: 0 20px;
   z-index: 2;
+  position: relative;
 }
 div.footer > div[data-v-6c9aa71b] {
   max-width: var(--page-width);
