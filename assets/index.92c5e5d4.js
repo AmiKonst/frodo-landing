@@ -34179,7 +34179,7 @@ var objectInspect = function inspect_(obj, options, depth, seen) {
         var ys = arrObjKeys(obj, inspect);
         var isPlainObject = gPO ? gPO(obj) === Object.prototype : obj instanceof Object || obj.constructor === Object;
         var protoTag = obj instanceof Object ? '' : 'null prototype';
-        var stringTag = !isPlainObject && toStringTag && Object(obj) === obj && toStringTag in obj ? $slice.call(toStr(obj), 8, -1) : protoTag ? 'Object' : '';
+        var stringTag = !isPlainObject && toStringTag && Object(obj) === obj && toStringTag in obj ? $slice.call(toStr$1(obj), 8, -1) : protoTag ? 'Object' : '';
         var constructorTag = isPlainObject || typeof obj.constructor !== 'function' ? '' : obj.constructor.name ? obj.constructor.name + ' ' : '';
         var tag = constructorTag + (stringTag || protoTag ? '[' + $join.call($concat$1.call([], stringTag || [], protoTag || []), ': ') + '] ' : '');
         if (ys.length === 0) { return tag + '{}'; }
@@ -34204,13 +34204,13 @@ function quote(s) {
 function canTrustToString(obj) {
     return !toStringTag || !(typeof obj === 'object' && (toStringTag in obj || typeof obj[toStringTag] !== 'undefined'));
 }
-function isArray$6(obj) { return toStr(obj) === '[object Array]' && canTrustToString(obj); }
-function isDate$2(obj) { return toStr(obj) === '[object Date]' && canTrustToString(obj); }
-function isRegExp$2(obj) { return toStr(obj) === '[object RegExp]' && canTrustToString(obj); }
-function isError(obj) { return toStr(obj) === '[object Error]' && canTrustToString(obj); }
-function isString$3(obj) { return toStr(obj) === '[object String]' && canTrustToString(obj); }
-function isNumber$2(obj) { return toStr(obj) === '[object Number]' && canTrustToString(obj); }
-function isBoolean$1(obj) { return toStr(obj) === '[object Boolean]' && canTrustToString(obj); }
+function isArray$6(obj) { return toStr$1(obj) === '[object Array]' && canTrustToString(obj); }
+function isDate$2(obj) { return toStr$1(obj) === '[object Date]' && canTrustToString(obj); }
+function isRegExp$2(obj) { return toStr$1(obj) === '[object RegExp]' && canTrustToString(obj); }
+function isError(obj) { return toStr$1(obj) === '[object Error]' && canTrustToString(obj); }
+function isString$3(obj) { return toStr$1(obj) === '[object String]' && canTrustToString(obj); }
+function isNumber$2(obj) { return toStr$1(obj) === '[object Number]' && canTrustToString(obj); }
+function isBoolean$1(obj) { return toStr$1(obj) === '[object Boolean]' && canTrustToString(obj); }
 
 // Symbol and BigInt do have Symbol.toStringTag by spec, so that can't be used to eliminate false positives
 function isSymbol(obj) {
@@ -34246,7 +34246,7 @@ function has$3(obj, key) {
     return hasOwn$2.call(obj, key);
 }
 
-function toStr(obj) {
+function toStr$1(obj) {
     return objectToString$1.call(obj);
 }
 
@@ -34597,7 +34597,7 @@ var abs$3 = Math.abs;
 var floor$1 = Math.floor;
 
 /** @type {import('./max')} */
-var max$2 = Math.max;
+var max$3 = Math.max;
 
 /** @type {import('./min')} */
 var min$2 = Math.min;
@@ -34754,122 +34754,95 @@ function requireObject_getPrototypeOf () {
 	return Object_getPrototypeOf;
 }
 
-var implementation;
-var hasRequiredImplementation;
+/* eslint no-invalid-this: 1 */
 
-function requireImplementation () {
-	if (hasRequiredImplementation) return implementation;
-	hasRequiredImplementation = 1;
+var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
+var toStr = Object.prototype.toString;
+var max$2 = Math.max;
+var funcType = '[object Function]';
 
-	/* eslint no-invalid-this: 1 */
+var concatty = function concatty(a, b) {
+    var arr = [];
 
-	var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
-	var toStr = Object.prototype.toString;
-	var max = Math.max;
-	var funcType = '[object Function]';
+    for (var i = 0; i < a.length; i += 1) {
+        arr[i] = a[i];
+    }
+    for (var j = 0; j < b.length; j += 1) {
+        arr[j + a.length] = b[j];
+    }
 
-	var concatty = function concatty(a, b) {
-	    var arr = [];
+    return arr;
+};
 
-	    for (var i = 0; i < a.length; i += 1) {
-	        arr[i] = a[i];
-	    }
-	    for (var j = 0; j < b.length; j += 1) {
-	        arr[j + a.length] = b[j];
-	    }
+var slicy = function slicy(arrLike, offset) {
+    var arr = [];
+    for (var i = offset || 0, j = 0; i < arrLike.length; i += 1, j += 1) {
+        arr[j] = arrLike[i];
+    }
+    return arr;
+};
 
-	    return arr;
-	};
+var joiny = function (arr, joiner) {
+    var str = '';
+    for (var i = 0; i < arr.length; i += 1) {
+        str += arr[i];
+        if (i + 1 < arr.length) {
+            str += joiner;
+        }
+    }
+    return str;
+};
 
-	var slicy = function slicy(arrLike, offset) {
-	    var arr = [];
-	    for (var i = offset || 0, j = 0; i < arrLike.length; i += 1, j += 1) {
-	        arr[j] = arrLike[i];
-	    }
-	    return arr;
-	};
+var implementation$1 = function bind(that) {
+    var target = this;
+    if (typeof target !== 'function' || toStr.apply(target) !== funcType) {
+        throw new TypeError(ERROR_MESSAGE + target);
+    }
+    var args = slicy(arguments, 1);
 
-	var joiny = function (arr, joiner) {
-	    var str = '';
-	    for (var i = 0; i < arr.length; i += 1) {
-	        str += arr[i];
-	        if (i + 1 < arr.length) {
-	            str += joiner;
-	        }
-	    }
-	    return str;
-	};
+    var bound;
+    var binder = function () {
+        if (this instanceof bound) {
+            var result = target.apply(
+                this,
+                concatty(args, arguments)
+            );
+            if (Object(result) === result) {
+                return result;
+            }
+            return this;
+        }
+        return target.apply(
+            that,
+            concatty(args, arguments)
+        );
 
-	implementation = function bind(that) {
-	    var target = this;
-	    if (typeof target !== 'function' || toStr.apply(target) !== funcType) {
-	        throw new TypeError(ERROR_MESSAGE + target);
-	    }
-	    var args = slicy(arguments, 1);
+    };
 
-	    var bound;
-	    var binder = function () {
-	        if (this instanceof bound) {
-	            var result = target.apply(
-	                this,
-	                concatty(args, arguments)
-	            );
-	            if (Object(result) === result) {
-	                return result;
-	            }
-	            return this;
-	        }
-	        return target.apply(
-	            that,
-	            concatty(args, arguments)
-	        );
+    var boundLength = max$2(0, target.length - args.length);
+    var boundArgs = [];
+    for (var i = 0; i < boundLength; i++) {
+        boundArgs[i] = '$' + i;
+    }
 
-	    };
+    bound = Function('binder', 'return function (' + joiny(boundArgs, ',') + '){ return binder.apply(this,arguments); }')(binder);
 
-	    var boundLength = max(0, target.length - args.length);
-	    var boundArgs = [];
-	    for (var i = 0; i < boundLength; i++) {
-	        boundArgs[i] = '$' + i;
-	    }
+    if (target.prototype) {
+        var Empty = function Empty() {};
+        Empty.prototype = target.prototype;
+        bound.prototype = new Empty();
+        Empty.prototype = null;
+    }
 
-	    bound = Function('binder', 'return function (' + joiny(boundArgs, ',') + '){ return binder.apply(this,arguments); }')(binder);
+    return bound;
+};
 
-	    if (target.prototype) {
-	        var Empty = function Empty() {};
-	        Empty.prototype = target.prototype;
-	        bound.prototype = new Empty();
-	        Empty.prototype = null;
-	    }
+var implementation = implementation$1;
 
-	    return bound;
-	};
-	return implementation;
-}
+var functionBind = Function.prototype.bind || implementation;
 
-var functionBind;
-var hasRequiredFunctionBind;
-
-function requireFunctionBind () {
-	if (hasRequiredFunctionBind) return functionBind;
-	hasRequiredFunctionBind = 1;
-
-	var implementation = requireImplementation();
-
-	functionBind = Function.prototype.bind || implementation;
-	return functionBind;
-}
-
-var functionCall;
-var hasRequiredFunctionCall;
-
-function requireFunctionCall () {
-	if (hasRequiredFunctionCall) return functionCall;
-	hasRequiredFunctionCall = 1;
-
-	/** @type {import('./functionCall')} */
-	functionCall = Function.prototype.call;
-	return functionCall;
-}
+/** @type {import('./functionCall')} */
+var functionCall = Function.prototype.call;
 
 var functionApply;
 var hasRequiredFunctionApply;
@@ -34886,19 +34859,19 @@ function requireFunctionApply () {
 /** @type {import('./reflectApply')} */
 var reflectApply = typeof Reflect !== 'undefined' && Reflect && Reflect.apply;
 
-var bind$2 = requireFunctionBind();
+var bind$2 = functionBind;
 
 var $apply$1 = requireFunctionApply();
-var $call$2 = requireFunctionCall();
+var $call$2 = functionCall;
 var $reflectApply = reflectApply;
 
 /** @type {import('./actualApply')} */
 var actualApply = $reflectApply || bind$2.call($call$2, $apply$1);
 
-var bind$1 = requireFunctionBind();
+var bind$1 = functionBind;
 var $TypeError$4 = type;
 
-var $call$1 = requireFunctionCall();
+var $call$1 = functionCall;
 var $actualApply = actualApply;
 
 /** @type {(args: [Function, thisArg?: unknown, ...args: unknown[]]) => Function} TODO FIXME, find a way to use import('.') */
@@ -34991,7 +34964,7 @@ function requireHasown () {
 
 	var call = Function.prototype.call;
 	var $hasOwn = Object.prototype.hasOwnProperty;
-	var bind = requireFunctionBind();
+	var bind = functionBind;
 
 	/** @type {import('.')} */
 	hasown = bind.call(call, $hasOwn);
@@ -35012,7 +34985,7 @@ var $URIError = uri;
 
 var abs$2 = abs$3;
 var floor = floor$1;
-var max$1 = max$2;
+var max$1 = max$3;
 var min$1 = min$2;
 var pow = pow$1;
 var round$2 = round$3;
@@ -35057,7 +35030,7 @@ var $ObjectGPO = requireObject_getPrototypeOf();
 var $ReflectGPO = requireReflect_getPrototypeOf();
 
 var $apply = requireFunctionApply();
-var $call = requireFunctionCall();
+var $call = functionCall;
 
 var needsEval = {};
 
@@ -35238,7 +35211,7 @@ var LEGACY_ALIASES = {
 	'%WeakSetPrototype%': ['WeakSet', 'prototype']
 };
 
-var bind = requireFunctionBind();
+var bind = functionBind;
 var hasOwn$1 = requireHasown();
 var $concat = bind.call($call, Array.prototype.concat);
 var $spliceApply = bind.call($apply, Array.prototype.splice);
@@ -46265,19 +46238,19 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        component: () => __vitePreload(() => import('./Home.f4bf5cba.js'),true?["assets/Home.f4bf5cba.js","assets/Ready.b9e9c62b.js","assets/Ready.3added5a.css","assets/Home.56e92f6f.css"]:void 0),
+        component: () => __vitePreload(() => import('./Home.c4bdeef6.js'),true?["assets/Home.c4bdeef6.js","assets/Ready.af36fae0.js","assets/Ready.3added5a.css","assets/Home.56e92f6f.css"]:void 0),
         abort: []
     },
     {
         path: '/join',
         name: 'join',
-        component: () => __vitePreload(() => import('./Join.75d8a759.js'),true?["assets/Join.75d8a759.js","assets/Ready.b9e9c62b.js","assets/Ready.3added5a.css","assets/Join.9345e8bf.css"]:void 0),
+        component: () => __vitePreload(() => import('./Join.414d7c59.js'),true?["assets/Join.414d7c59.js","assets/Ready.af36fae0.js","assets/Ready.3added5a.css","assets/Join.9345e8bf.css"]:void 0),
         abort: []
     },
     {
         path: '/error',
         name: 'error',
-        component: () => __vitePreload(() => import('./Error.4b448a36.js'),true?["assets/Error.4b448a36.js","assets/Error.b7bdf131.css"]:void 0),
+        component: () => __vitePreload(() => import('./Error.4ac80f1f.js'),true?["assets/Error.4ac80f1f.js","assets/Error.b7bdf131.css"]:void 0),
         abort: []
     },
     {
@@ -46447,10 +46420,10 @@ const useKolsApi = defineStore('kols-api', {
                     name: 'Timofey Zelenski',
                     logo: 'timofey-zelenski.jpg',
                     link: 'https://t.me/zelenski_music'
-                }, {
-                    name: 'Anatoly Grinberg',
-                    logo: 'grinberg.jpg',
-                    link: 'https://vk.com/i_am_tokee'
+                // }, {
+                //     name: 'Anatoly Grinberg',
+                //     logo: 'grinberg.jpg',
+                //     link: 'https://vk.com/i_am_tokee'
                 }, {
                     name: 'Notahash',
                     logo: 'notahash.jpg',
@@ -55070,7 +55043,7 @@ const _hoisted_3$3 = { class: "desktop-only" };
 const _hoisted_4$2 = ["href"];
 const _hoisted_5$2 = {
   target: "_blank",
-  href: "https://t.me/bilbomusic",
+  href: "https://t.me/bilboMusicBot/app?startapp=ref_cmhozndm80001qc12p5sit7gi",
   class: "desktop-only"
 };
 const _hoisted_6$2 = ["href"];
@@ -55622,7 +55595,7 @@ const browserExt = {
   },
   test: () => true,
   load: async () => {
-    await __vitePreload(() => import('./browserAll.7b037b50.js'),true?["assets/browserAll.7b037b50.js","assets/init.de52ac3d.js","assets/colorToUniform.08ac551a.js"]:void 0);
+    await __vitePreload(() => import('./browserAll.148d6777.js'),true?["assets/browserAll.148d6777.js","assets/init.e2cf9981.js","assets/colorToUniform.08ac551a.js"]:void 0);
   }
 };
 
@@ -55634,7 +55607,7 @@ const webworkerExt = {
   },
   test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
   load: async () => {
-    await __vitePreload(() => import('./webworkerAll.050cee82.js'),true?["assets/webworkerAll.050cee82.js","assets/init.de52ac3d.js","assets/colorToUniform.08ac551a.js"]:void 0);
+    await __vitePreload(() => import('./webworkerAll.9bc8ec9b.js'),true?["assets/webworkerAll.9bc8ec9b.js","assets/init.e2cf9981.js","assets/colorToUniform.08ac551a.js"]:void 0);
   }
 };
 
@@ -66094,14 +66067,14 @@ async function autoDetectRenderer(options) {
   for (let i = 0; i < preferredOrder.length; i++) {
     const rendererType = preferredOrder[i];
     if (rendererType === "webgpu" && await isWebGPUSupported()) {
-      const { WebGPURenderer } = await __vitePreload(() => import('./WebGPURenderer.09472411.js'),true?["assets/WebGPURenderer.09472411.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.e7399794.js"]:void 0);
+      const { WebGPURenderer } = await __vitePreload(() => import('./WebGPURenderer.a9dfde60.js'),true?["assets/WebGPURenderer.a9dfde60.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.0171bef3.js"]:void 0);
       RendererClass = WebGPURenderer;
       finalOptions = { ...options, ...options.webgpu };
       break;
     } else if (rendererType === "webgl" && isWebGLSupported(
       options.failIfMajorPerformanceCaveat ?? AbstractRenderer.defaultOptions.failIfMajorPerformanceCaveat
     )) {
-      const { WebGLRenderer } = await __vitePreload(() => import('./WebGLRenderer.4def3bf0.js'),true?["assets/WebGLRenderer.4def3bf0.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.e7399794.js"]:void 0);
+      const { WebGLRenderer } = await __vitePreload(() => import('./WebGLRenderer.6de18ca5.js'),true?["assets/WebGLRenderer.6de18ca5.js","assets/colorToUniform.08ac551a.js","assets/SharedSystems.0171bef3.js"]:void 0);
       RendererClass = WebGLRenderer;
       finalOptions = { ...options, ...options.webgl };
       break;

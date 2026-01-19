@@ -1,5 +1,5 @@
-import { u as useBackedApi, a as useTrustApi, b as useKolsApi, c as useTeamApi, _ as _export_sfc, d as useI18n, r as resolveComponent, o as openBlock, e as createElementBlock, f as createBaseVNode, g as unref, h as createVNode, B as Button, i as computed, t as toDisplayString, F as Fragment, j as renderList, n as normalizeClass, s as stores, k as reactive, w as watch, l as onMounted, m as baseUrl, p as createCommentVNode, q as createBlock, v as numberWithSpaces, x as createStaticVNode, y as delay, z as resolveDirective, A as createTextVNode, C as withDirectives, D as withCtx } from './index.8b1b6344.js';
-import { L as LinkButton, R as Ready } from './Ready.b9e9c62b.js';
+import { u as useBackedApi, a as useTrustApi, b as useKolsApi, c as useTeamApi, _ as _export_sfc, d as useI18n, r as resolveComponent, o as openBlock, e as createElementBlock, f as createBaseVNode, g as unref, h as createVNode, B as Button, i as computed, t as toDisplayString, F as Fragment, j as renderList, n as normalizeClass, s as stores, k as reactive, w as watch, l as onMounted, m as baseUrl, p as createCommentVNode, q as createBlock, v as numberWithSpaces, x as createStaticVNode, y as delay, z as resolveDirective, A as createTextVNode, C as withDirectives, D as withCtx } from './index.92c5e5d4.js';
+import { L as LinkButton, R as Ready } from './Ready.af36fae0.js';
 
 const api = {
     backed: () => useBackedApi(),
@@ -15,7 +15,7 @@ const _hoisted_2$a = ["innerHTML"];
 const _hoisted_3$9 = ["innerHTML"];
 const _hoisted_4$8 = {
   target: "_blank",
-  href: "https://t.me/bilbomusic"
+  href: "https://t.me/bilboMusicBot/app?startapp=ref_cmhozndm80001qc12p5sit7gi"
 };
 const _hoisted_5$8 = { class: "scroll-down" };
 
@@ -564,6 +564,13 @@ return (_ctx, _cache) => {
           href: "https://t.me/Exzik",
           description: "@Exzik",
           class: "option-6"
+        }),
+        createVNode(LinkButton, {
+          img: "/img/team/grinberg.jpg",
+          name: "Anatoly Grinberg",
+          href: "https://t.me/Iamtokee",
+          description: "@Iamtokee",
+          class: "option-4"
         })
       ])
     ])
